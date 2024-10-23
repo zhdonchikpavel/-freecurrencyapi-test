@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  php:
+    build: './docker/php'
+    ports: ['9000:9000']
+    restart: always
+    volumes: ['./app/:/var/www/app:cached']
+    depends_on:
+      - postgres
+  nginx:
+    build: './docker/nginx'
+    ports: ['80:80']
+    restart: always
+    volumes: ['./app/:/var/www/app:cached']
+    depends_on:
+      - php
+  postgres:
+    image: postgres:17.0-alpine3.20
+    ports:
+      - "35000:5432"
+    env_file:
+      - .env
+    volumes:
+      - ./docker/db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always

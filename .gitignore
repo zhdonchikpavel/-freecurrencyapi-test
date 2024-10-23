@@ -1,0 +1,12 @@
+.idea
+.fleet
+.DS_Store
+**/.DS_Store
+###> symfony/framework-bundle ###
+app/.env
+app/public/bundles/
+app/var/
+app/vendor/
+###< symfony/framework-bundle ###
+
+supervisord.log

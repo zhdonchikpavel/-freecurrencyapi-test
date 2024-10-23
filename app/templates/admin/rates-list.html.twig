@@ -1,0 +1,7 @@
+<tr class="sonata-ba-view-container"><th colspan="2" style="background-color: cadetblue;">Rates:</th></tr>
+{% for rate in value %}
+<tr class="sonata-ba-view-container">
+    <th>{{ rate.targetCurrency.code }}</th>
+    <td>{{ rate.rate }}</td>
+</tr>
+{% endfor %}

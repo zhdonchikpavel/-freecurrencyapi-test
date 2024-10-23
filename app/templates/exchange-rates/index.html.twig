@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+    {% if exchangeResult != null %}
+        <b style="color:indianred;">Bingo! You will get {{ exchangeResult }} {{ targetCurrencyCode }} for {{ amount }} {{ sourceCurrencyCode }}</b>
+    {% endif %}
+
+{% endblock body %}
